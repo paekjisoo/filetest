@@ -1,0 +1,26 @@
+<% if current_user %>
+<p id="notice"><%= notice %></p>
+    <h1>Main Page</h1>
+    <table>
+      <thead>
+        <tr>
+
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to 'Show', post %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+
+    <%= link_to 'New Post', new_post_path %>
+<% else %>
+<h1>Landing Page</h1>
+<% end %>
